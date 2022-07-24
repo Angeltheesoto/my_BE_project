@@ -2,6 +2,17 @@
 
 This file will cover everything I learned in BE Development as a review for helping me start my own CRUD app.
 
+## FOLDERS PURPOSE
+
+- server.js - this is where the main file where everything is connected too
+- views folder - This is where our HTML pages will be for displaying to the browser.
+- public folder - This is where the css, images and any other files that can be shown to anyone. You wouldnt keep anything private in this folder.
+- models folder -
+- controllers folder -
+- .gitignore - Keeps files untrackable so when you push the folder up to github those files dont go to github.
+- .env - holds the PORT number for running the live server.
+- layouts - Holds premade templates for working with jsx to make it easier to make more pages quicker with a jumpstart.
+
 ## NPM PACKAGES:
 
 - npm init -y - Creates the package.json file we need.
@@ -14,16 +25,17 @@ This file will cover everything I learned in BE Development as a review for help
   // initialize your express app: { const app = express() }
 - npm install dotenv - this is an environment variable.
   // In a .env file write - PORT=3000 - This is the port you go to when running nodemon
+- npm install express-react-views - this lets us use react with express for SSR.
 -
 
 ## MERN stack
 
 - A mern stack is
 
-- MongoDB -
+- MongoDB - Is a database for all our data.
 - ExpressJS -
-- ReactJS -
-- NodeJS -
+- ReactJS - Is a javascript library which helps us do more with less. Its a combination of HTML and JavaScript.
+- NodeJS - Is a javascript runtime. this means we can run javascript on any computer.
 
 ## C.R.U.D:
 
@@ -129,6 +141,24 @@ app.listen(3000)
   ![CRUD diagram](./images/CRUD-diagram.png)
 - example of a finished project file:
   ![project file](./images/project-files.png)
+- SSR: Server side rendering.
+- MVC - is the workflow based on three major components of the MERN stack. Stands for Models, Views and Controllers.
+  CONTROLLERS - establish a connection between the router and models. As routers and models do not interact directly they carry instruction through controllers. This is the reason most functions and middleware objects are coded in the controller. Which can be used anywhere.
+  ROUTES - Routes handle all the routing process in the project. This is used to create API and then can be used with different front end technologies. example: react, angular or basic HTML CSS JS.
+  MODELS - Models handle all the Schema required in the project. It can be used to create a connection between multiple schemas. It handles the information and exchanges it with the database(MongoDB). Which stores all of the information.
+- MIDDLEWEAR in server.js - Should be above all route s. We are setting up which view engine will be used and requiring JSX so we can utilize it to build our views.
+
+```
+// MIDDLEWARE
+app.set('views', __dirname + '/views')
+app.set('view engine', 'jsx')
+app.engine('jsx', require('express-react-views').createEngine())
+```
+
+### Day 4
+
+-
+-
 
 ### PROJECT INSTRUCTIONS
 
@@ -152,12 +182,38 @@ app.listen(3000)
 - In server.js:
 
 ```
+// DEPENDENCIES
 const express = require('express')
 
 // CONFIGURATION
 require('dotenv').config()
 const PORT = process.env.PORT
-console.log(PORT)
+const app = express()
+
+// ROUTES
+app.get('/', (req, res) => {
+  res.send('Welcome to an Awesome App about Breads!')
+})
+
+// LISTEN
+app.listen(PORT, () => {
+  console.log('nomming at port', PORT);
+})
 ```
 
--
+- Confirm it shows in browser with nodemon.
+- In controllers/ computer_controllers.js
+
+```
+const express = require('express')
+const breads = express.Router()
+
+// INDEX
+breads.get('/', (req, res) => {
+  res.send('This is the index at /breads')
+})
+
+module.exports = breads
+```
+
+#### Decided not to continue this part

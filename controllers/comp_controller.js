@@ -5,7 +5,13 @@ const Computer = require('../models/computer.js')
 
 // INDEX - creating a new route
 computers.get('/', (req, res) => {
- res.send(Computer)
+ res.render('index', 
+  {
+   computers: Computer,
+   title: 'Index Page'
+  }
+ )
+ // res.send(Computer) 
 })
 
 // SHOW 

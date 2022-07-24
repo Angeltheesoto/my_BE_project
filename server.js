@@ -6,6 +6,11 @@ require('dotenv').config()
 const PORT = process.env.PORT 
 const app = express()
 
+// MIDDLEWARE - This allows our views folder to be seen and connects everything together.
+app.set('views', __dirname + '/views')
+app.set('view engine', 'jsx')
+app.engine('jsx', require('express-react-views').createEngine())
+
 // ROUTES - This is the main page that shows when loaded up.
 app.get('/', (req, res) => {
  res.send('Welcome to an awsome app about computer builds.')
