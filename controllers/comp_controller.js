@@ -16,7 +16,13 @@ computers.get('/', (req, res) => {
 
 // SHOW 
 computers.get('/:arrayIndex', (req, res) => {
- res.send(Computer[req.params.arrayIndex])
+ if(Computer[req.params.arrayIndex]){
+   res.render('Show',{
+    bread: Computer[req.params.arrayIndex]
+   })
+ } else {
+  res.send('404')
+ }
 })
 
 // exporting it to be used somewhere else.

@@ -5,13 +5,13 @@ This file will cover everything I learned in BE Development as a review for help
 ## FOLDERS PURPOSE
 
 - server.js - this is where the main file where everything is connected too
-- views folder - This is where our HTML pages will be for displaying to the browser.
-- public folder - This is where the css, images and any other files that can be shown to anyone. You wouldnt keep anything private in this folder.
-- models folder -
-- controllers folder -
+- ./views - This is where our HTML pages will be for displaying to the browser.
+- ./public - This is where the css, images and any other files that can be shown to anyone. You wouldnt keep anything private in this folder.
+- ./models -
+- ./controllers -
 - .gitignore - Keeps files untrackable so when you push the folder up to github those files dont go to github.
 - .env - holds the PORT number for running the live server.
-- layouts - Holds premade templates for working with jsx to make it easier to make more pages quicker with a jumpstart.
+- ./layouts - Holds premade templates for working with jsx to make it easier to make more pages quicker with a jumpstart.
 
 ## NPM PACKAGES:
 
@@ -157,8 +157,25 @@ app.engine('jsx', require('express-react-views').createEngine())
 
 ### Day 4
 
--
--
+- RESTFUL ROUTES - REST -
+  - Utilizes HTTP verbs to keep unique paths to a minimum
+  - Creates an easily understandable and maintainable pattern
+  - Provides flexibility, while limiting unique routes
+- What does REST stand for -
+  - Representational
+  - State
+  - Transfer
+
+```
+ Action    HTTP METHOD   Example Route      View
+  INDEX       GET       /breads              index.jsx
+  SHOW        GET       /breads/:id          show.jsx
+  CREATE      POST      /breads              none - creates a new item in our database
+  NEW         GET       /breads/new           new.jsx
+  EDIT        GET       /breads/:id/edit
+  UPDATE      PUT       /breads/:id
+  DESTROY   DELETE      /breads/:id
+```
 
 ### PROJECT INSTRUCTIONS
 

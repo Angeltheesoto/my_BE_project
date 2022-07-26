@@ -10,13 +10,14 @@ const app = express()
 app.set('views', __dirname + '/views')
 app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
+app.use(express.static('public')) // connects public folder
 
-// ROUTES - This is the main page that shows when loaded up.
+// ROUTES - This is the main page that shows when loaded up. First route
 app.get('/', (req, res) => {
  res.send('Welcome to an awsome app about computer builds.')
 })
 
-// COMPUTERS - connected to controller file
+// COMPUTERS - connected to controller file 
 const compController = require('./controllers/comp_controller.js')
 app.use('/computers', compController)
 
@@ -24,5 +25,10 @@ app.use('/computers', compController)
 // LISTEN - Listening in the terminal if it goes through.
 app.listen(PORT, () => {
  console.log('Showing port at http://localhost:', PORT)
+})
+
+// 404 Page
+app.get('*', (req, res) => {
+ res.send('404')
 })
 
