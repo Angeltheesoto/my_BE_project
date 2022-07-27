@@ -11,6 +11,7 @@ app.set('views', __dirname + '/views')
 app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
 app.use(express.static('public')) // connects public folder
+app.use(express.urlencoded({extended: true})) // The data is coming in as a urlencoded string, just as we have set it up in Postman. We need to change the string into an object so we can work with it.
 
 // ROUTES - This is the main page that shows when loaded up. First route
 app.get('/', (req, res) => {
@@ -20,7 +21,6 @@ app.get('/', (req, res) => {
 // COMPUTERS - connected to controller file 
 const compController = require('./controllers/comp_controller.js')
 app.use('/computers', compController)
-
 
 // LISTEN - Listening in the terminal if it goes through.
 app.listen(PORT, () => {

@@ -19,6 +19,9 @@ function Index({computers, title}) {
      })
     }
    </ul>
+   <div className="newButton">
+    <a href="/computers/new"><button>Add a new computer</button></a>
+   </div>
   </Default>
  )
 }
