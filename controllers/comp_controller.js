@@ -24,7 +24,8 @@ computers.get('/new', (req, res) => {
 computers.get('/:arrayIndex', (req, res) => {
  if(Computer[req.params.arrayIndex]){
    res.render('Show',{
-    bread: Computer[req.params.arrayIndex]
+    bread: Computer[req.params.arrayIndex],
+    index: req.params.arrayIndex,
    })
  } else {
   res.send('404')
@@ -44,6 +45,12 @@ computers.post('/', (req, res) => {
  Computer.push(req.body)
  // res.send(Computer)
  res.redirect('/computers')
+})
+
+// DELETE
+computers.delete('/:indexArray', (req, res) => {
+  Computer.splice(req.params.indexArray, 1)
+  res.status(303).redirect('/computers')
 })
 
 // exporting it to be used somewhere else.

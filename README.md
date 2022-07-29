@@ -26,7 +26,7 @@ This file will cover everything I learned in BE Development as a review for help
 - npm install dotenv - this is an environment variable.
   // In a .env file write - PORT=3000 - This is the port you go to when running nodemon
 - npm install express-react-views - this lets us use react with express for SSR.
--
+- npm install method-override - Our app doesnt understand that we are trying to override the POST request. We need this to solve the problem. (day 5)
 
 ## MERN stack
 
@@ -166,6 +166,10 @@ app.engine('jsx', require('express-react-views').createEngine())
   - State
   - Transfer
 
+### Day 5
+
+Review routes
+
 ```
  Action    HTTP METHOD   Example Route      View
   INDEX       GET       /breads              index.jsx
@@ -176,12 +180,6 @@ app.engine('jsx', require('express-react-views').createEngine())
   UPDATE      PUT       /breads/:id
   DESTROY   DELETE      /breads/:id
 ```
-
-### Day 5
-
--
--
--
 
 ### PROJECT INSTRUCTIONS
 
