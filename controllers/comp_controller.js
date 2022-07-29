@@ -20,6 +20,14 @@ computers.get('/new', (req, res) => {
  res.render('new')
 })
 
+// EDIT - Must be placed above the show route
+computers.get('/:indexArray/edit', (req, res) => {
+  res.render('edit', {
+    computer: Computer[req.params.indexArray],
+    index: req.params.indexArray
+  })
+})
+
 // SHOW 
 computers.get('/:arrayIndex', (req, res) => {
  if(Computer[req.params.arrayIndex]){
@@ -45,6 +53,17 @@ computers.post('/', (req, res) => {
  Computer.push(req.body)
  // res.send(Computer)
  res.redirect('/computers')
+})
+
+// UPDATE
+computers.put('/:arrayIndex', (req, res) => {
+  if(req.body.hasGluten === 'on'){
+    req.body.hasGluten = true
+  } else {
+    req.body.hasGluten = false
+  }
+  Computer[req.params.arrayIndex] = req.body
+  res.redirect(`/computers/${req.params.arrayIndex}`)
 })
 
 // DELETE

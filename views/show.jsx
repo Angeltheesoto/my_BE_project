@@ -17,6 +17,7 @@ function Show ({bread, index}) {
       }
       have gluten.
     </p>
+    <a href={`/computers/${index}/edit`}><button>Edit</button></a>
     <form action={`/computers/${index}?_method=DELETE`} method="POST">
       <input type="submit" value="DELETE" />
     </form>
