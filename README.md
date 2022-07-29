@@ -7,8 +7,8 @@ This file will cover everything I learned in BE Development as a review for help
 - server.js - this is where the main file where everything is connected too
 - ./views - This is where our HTML pages will be for displaying to the browser.
 - ./public - This is where the css, images and any other files that can be shown to anyone. You wouldnt keep anything private in this folder.
-- ./models -
-- ./controllers -
+- ./models - Contains important data and user information.
+- ./controllers - Is a controller that connects the models and views and routes.
 - .gitignore - Keeps files untrackable so when you push the folder up to github those files dont go to github.
 - .env - holds the PORT number for running the live server.
 - ./layouts - Holds premade templates for working with jsx to make it easier to make more pages quicker with a jumpstart.
@@ -180,6 +180,38 @@ Review routes
   UPDATE      PUT       /breads/:id
   DESTROY   DELETE      /breads/:id
 ```
+
+### Day 6
+
+- Software Architecture - The fundamental structure of a software system (web application)
+- MVC: Model, View, and Controller - Software architecture that is commonly used for web applications.
+- MODELS - Deals with Data and data logic. This contains, user information, Validations (birthday etc..), Part of backend.
+- VIEWS - Deals with user interaction/ user experience. This contains, Webpages the user sees. Provides error messages. Part of frontend.
+- CONTROLLERS - Act as a controller for everything. This contains, a way to manage interaction between the models and views.
+- REST - Representational State Transfer.
+- DATABASE - An organized collection of structured data. We use databases to allow data to change whenever. It is more efficient and allows creation of dynamic applications.
+
+#### TYPES OF DATA
+
+- SQL - Stores data in tables and rows. (Bank companies)
+- NoSQL - Stores data in other formats aside from tables. (Start up companies)
+
+- MONGODB - Is easily scalable. Data is easy to access.
+- jSON - Javascript Object Notation - Is a familiar way to structure data with key-value pairs.
+- BSON - Binary JSON - is json encoded into binary. Allows usage of data types JSON does not natively support, such as dates and binary values. Was created by MongoDB to store data in this format and to make it lightweight to traverse easily.
+  ![project file](./images/MongoDB-datastructure.png)
+- Database - Database holds collections.
+- Collection - Collections holds documents.
+- Document - The most basic unit of data in MongoDB.
+
+- MONGODB COMPASS - is a GUI to make it easier on the user.
+- Connection String - identifies where to connect to a specific database.
+
+### Day 7
+
+-
+-
+-
 
 ### PROJECT INSTRUCTIONS
 
